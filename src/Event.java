@@ -9,14 +9,14 @@ import java.time.*;
  */
 abstract class Event implements Comparable<Event>{
     // Instance variables
-    private String name;
+    String name;
     private LocalDateTime date;
 
     // Constructor
- //   public Event(String name, LocalDateTime date){
-   //     this.name = name;
-     //   this.date = date;
-    //}
+    public Event(String name, LocalDateTime date){
+        this.name = name;
+        this.date = date;
+    }
 
     public Event() {
         this.name = name;
