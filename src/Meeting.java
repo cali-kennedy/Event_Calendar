@@ -1,16 +1,19 @@
 import java.time.LocalDateTime;
 import java.time.*;
-
+import java.time.Duration;
 public class Meeting extends Event implements Completable {
     private LocalDateTime endDateTime;
     private String location;
     private boolean complete;
+    private String name;
 
     public Meeting(String name, LocalDateTime dateTime, LocalDateTime endDateTime, String location) {
         super(name, dateTime);
         this.endDateTime = endDateTime;
         this.location = location;
         this.complete = false;
+        super.setName(name);
+        this.name = name;
     }
 
     public LocalDateTime getEndTime() {
@@ -30,10 +33,7 @@ public class Meeting extends Event implements Completable {
     }
 
     public int getDuration(){
-        int begin_time_mon = this.getDateTime().getDayOfMonth();
-        int end_time_mon = endDateTime.getDayOfMonth();
-        int result = begin_time_mon - end_time_mon;
-        return result;
+        return (int) Duration.between(super.getDateTime(), endDateTime).toMinutes();
     }
     @Override
     public void complete() {

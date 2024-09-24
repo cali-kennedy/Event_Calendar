@@ -9,7 +9,7 @@ import java.time.*;
  */
 abstract class Event implements Comparable<Event>{
     // Instance variables
-    String name;
+    private String name;
     private LocalDateTime date;
 
     // Constructor
