@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.time.format.DateTimeFormatter;
 
 /**
  * EventPanel is a JPanel that displays details of an Event, such as the event name and date.
@@ -33,17 +34,24 @@ public class EventPanel extends JPanel {
         // Add padding around the panel for better visual separation
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
+        setBackground(Color.lightGray);
+
+
         // Create a panel to display the event's name and date/time
         JPanel infoPanel = new JPanel();
         infoPanel.setLayout(new GridLayout(2, 1));  // Set GridLayout with 2 rows, 1 column
 
+        // Format the LocalDateTime to a more readable format using DateTimeFormatter
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
         // Create labels for event name and date/time
         JLabel nameLabel = new JLabel("Event: " + event.getName());
-        JLabel dateTimeLabel = new JLabel("Date and Time: " + event.getDateTime());
+        JLabel dateTimeLabel = new JLabel("Date and Time: " + event.getDateTime().format(formatter));
 
         // Add the labels to the info panel
         infoPanel.add(nameLabel);
         infoPanel.add(dateTimeLabel);
+        infoPanel.setBackground(Color.GRAY);
 
         // Add the info panel to the center of the EventPanel layout
         add(infoPanel, BorderLayout.CENTER);

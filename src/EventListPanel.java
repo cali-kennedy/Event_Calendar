@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import static java.awt.Color.*;
+
 /**
  * EventListPanel is a JPanel that manages the display of EventPanel objects,
  * providing functionalities for sorting, filtering, and adding events.
